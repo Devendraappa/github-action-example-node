@@ -1,22 +1,22 @@
-name: Node Js app
-
+name: nodejs-app-test 
 on: 
   push:
-  workflow_dispatch: 
+  workflow_dispatch:
+
 jobs:
-  echo-Print:
+  echo-print:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 14
-    - run: npm install
-    - run: npm test
-    - run: npm run build
-    - uses: actions/upload-artifact@v3
-      with:
-        name: build-artifact
-        path: ./build
-    
-      
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+      - run: npm install 
+      - run: npm test
+      - run: mkdir build 
+      - run: npm run build 
+      - uses: actions/upload-artifact@v3
+        with:
+              name: build-artifact
+              path: build
